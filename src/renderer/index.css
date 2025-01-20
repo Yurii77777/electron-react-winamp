@@ -1,0 +1,190 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: 0;
+  border-radius: 0;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply bg-baseBlack;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: 'Dogica Pixel';
+  src: url('./assets//fonts/dogica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.primary-gradient {
+  background: linear-gradient(90deg, #14121E 0%, #68689C 49%, #313143 100%);
+}
+
+.gradient-red {
+  background: linear-gradient(90deg, #88252B 0%, #CE1B25 100%);
+}
+
+.gradient-green {
+  background: linear-gradient(90deg, #165920 0%, #33BB35 100%);
+}
+
+.primary-shadow {
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.timer-bg {
+  background-image: url('./assets//icons/timerBg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.secondary-shadow {
+  box-shadow: -2px -2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.tertiary-shadow {
+  box-shadow: 2px 2px 0 #68677C;
+}
+
+.inner-shadow {
+  box-shadow: inset 1px 1px 0 #18020B;
+}
+
+.inner-shadow-reverse {
+  box-shadow: inset -1px -1px 0 #B989A7;
+}
+
+.inner-shadow-soft {
+  box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.8);
+}
+
+.inner-shadow-light {
+  box-shadow: inset 2px 2px 0 #D9DFF4;
+}
+
+.inner-shadow-dark {
+  box-shadow: inset -2px -2px 0 #65718F;
+}
+
+.inner-shadow-white {
+  box-shadow: inset 2px 2px 0 #EFFFFF;
+}
+
+.inner-shadow-blue {
+  box-shadow: inset -2px -2px 0 #7C8A97;
+}
+
+.inner-shadow-green {
+  box-shadow: inset 2px 2px 0 #396A45;
+}
+
+.inner-shadow-gray {
+  box-shadow: inset 2px 2px 0 #99A9B5;
+}
+
+.inner-shadow-header {
+  box-shadow: inset 2px 2px 0 #817F97;
+}
+
+.playlist-container-shadow {
+  box-shadow: inset 2px -2px 0 #817F97;
+}
+
+.drop-shadow {
+  box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 126px;
+  height: 8px;
+  border-radius: 8px;
+  outline: none;
+  position: relative;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 27px;
+  height: 20px;
+  background: var(--thumb-color, url('./assets/icons/sliderThumb.svg'));
+  background-size: contain;
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 27px;
+  height: 20px;
+  background: var(--thumb-color, url('./assets/icons/sliderThumb.svg'));
+  background-size: contain;
+  cursor: pointer;
+}
+
+.volume-slider::-ms-thumb {
+  width: 27px;
+  height: 20px;
+  background: var(--thumb-color, url('./assets/icons/sliderThumb.svg'));
+  background-size: contain;
+  cursor: pointer;
+}
+
+.progress-bar {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px;
+  outline: none;
+  position: relative;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 45px;
+  height: 20px;
+  background: var(--thumb-color, url('./assets/icons/progressThumb.svg'));
+  background-size: contain;
+  cursor: pointer;
+}
+
+.progress-bar::-moz-range-thumb {
+  width: 45px;
+  height: 20px;
+  background: var(--thumb-color, url('./assets/icons/progressThumb.svg'));
+  background-size: contain;
+  cursor: pointer;
+}
+
+.progress-bar::-ms-thumb {
+  width: 45px;
+  height: 20px;
+  background: var(--thumb-color, url('./assets/icons/progressThumb.svg'));
+  background-size: contain;
+  cursor: pointer;
+}
+
+.equalizer-bg {
+  background-image: url('./assets//icons/equalizerDots.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
