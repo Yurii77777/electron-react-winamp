@@ -21,11 +21,11 @@ export const Info: FC<InfoProps> = ({
   const [isEqualizerActive, setIsEqualizerActive] = useState(false);
 
   return (
-    <div className="flex flex-col gap-y-3 h-[88px] w-full">
+    <div className="flex flex-col gap-y-3 h-[88px] flex-grow max-w-[calc(100%-200px)]">
       <p
         className="flex items-center font-dogica text-green-1 text-xs p-1
                   h-6 min-h-6 w-full bg-black text-green- overflow-hidden
-                  secondary-shadow tertiary-shadow"
+                  secondary-shadow tertiary-shadow whitespace-nowrap text-ellipsis"
       >
         {audioFileName}
       </p>

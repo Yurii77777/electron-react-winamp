@@ -83,7 +83,7 @@ const DragAndDrop = <T extends FieldValues>({
                   onDoubleClick={() => setSelectedFile(file)}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <p>
+                  <p className="truncate w-3/4">
                     {index + 1}. {file.name}
                   </p>
 

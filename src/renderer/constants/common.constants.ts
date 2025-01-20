@@ -3,8 +3,8 @@ export const INITIAL_SOUND_BALANCE = 0.5;
 
 export const MIN_WINDOW_HEIGHT = 245; // px
 export const WINDOW_HEIGHT_WITH_PLAYLIST = 826;
-export const MIN_WINDOW_WIDTH = 582; // px
-export const BASE_WINDOW_WIDTH = 582; // px
+export const MIN_WINDOW_WIDTH = 620; // px
+export const BASE_WINDOW_WIDTH = 620; // px
 
 export const DROPZONE_INPUT_NAME = 'dropzone';
 

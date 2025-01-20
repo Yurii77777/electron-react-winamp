@@ -7,31 +7,30 @@ import { VitePlugin } from '@electron-forge/plugin-vite';
 import { FusesPlugin } from '@electron-forge/plugin-fuses';
 import { FuseV1Options, FuseVersion } from '@electron/fuses';
 import path from 'path';
-import fs from 'fs';
 import 'dotenv/config';
 
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
     icon: 'src/renderer/assets/appIcons/icon',
-    // osxSign: {
-    //   optionsForFile: () => ({
-    //     entitlements: path.resolve(
-    //       __dirname,
-    //       'src/renderer/assets/entitlements.plist',
-    //     ),
-    //     'entitlements-inherit': path.resolve(
-    //       __dirname,
-    //       'src/renderer/assets/entitlements.plist',
-    //     ),
-    //   }),
-    //   identity: process.env.VITE_APPLE_APPSIGN_IDENTITY,
-    // },
-    // osxNotarize: {
-    //   appleApiKey: process.env.VITE_APPLE_API_KEY_PATH,
-    //   appleApiKeyId: process.env.VITE_APPLE_API_KEY_ID,
-    //   appleApiIssuer: process.env.VITE_APPLE_API_ISSUER,
-    // },
+    osxSign: {
+      optionsForFile: () => ({
+        entitlements: path.resolve(
+          __dirname,
+          'src/renderer/assets/entitlements.plist',
+        ),
+        'entitlements-inherit': path.resolve(
+          __dirname,
+          'src/renderer/assets/entitlements.plist',
+        ),
+      }),
+      identity: process.env.VITE_APPLE_APPSIGN_IDENTITY,
+    },
+    osxNotarize: {
+      appleApiKey: process.env.VITE_APPLE_API_KEY_PATH,
+      appleApiKeyId: process.env.VITE_APPLE_API_KEY_ID,
+      appleApiIssuer: process.env.VITE_APPLE_API_ISSUER,
+    },
   },
   rebuildConfig: {},
   makers: [
@@ -44,7 +43,7 @@ const config: ForgeConfig = {
       config: {
         name: 'Winamp',
         format: 'ULFO',
-        icon: 'src/renderer/assets/appIcons/icon.png',
+        icon: 'src/renderer/assets/appIcons/icon.icns',
         overwrite: true,
       },
     },

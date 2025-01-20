@@ -9,7 +9,7 @@ import { TimerProps } from './types';
 
 export const Timer: FC<TimerProps> = ({ progress }) => {
   return (
-    <div className="flex gap-x-2 w-[190px] h-[90px] timer-bg">
+    <div className="flex gap-x-2 w-[190px] h-[90px] timer-bg flex-shrink-0">
       <img src={audio} />
 
       <div className="flex flex-col justify-between w-full h-full py-2 pr-2">
