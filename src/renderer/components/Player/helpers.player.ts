@@ -99,3 +99,24 @@ export const updateProgress = ({
   const currentSeek = soundRef.current.seek() as number;
   setProgressSeconds(currentSeek);
 };
+
+export const getAudioChannelType = async (audioFile: File): Promise<string> => {
+  try {
+    const audioContext = new AudioContext();
+    const arrayBuffer = await audioFile.arrayBuffer();
+    const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+
+    const channelCount = audioBuffer.numberOfChannels;
+
+    if (channelCount === 1) {
+      return 'Mono';
+    } else if (channelCount === 2) {
+      return 'Stereo';
+    } else {
+      return 'Unknown';
+    }
+  } catch (error) {
+    console.error('Error determining audio channel type:', error);
+    return 'Unknown';
+  }
+};

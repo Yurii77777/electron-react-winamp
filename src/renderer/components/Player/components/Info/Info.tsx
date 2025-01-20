@@ -1,12 +1,16 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 import { Slider } from '../../../UI/Slider/Slider';
 import { Button } from '../../../UI/Button/Button';
-import { MESSAGE } from '../../../../messages/messages';
+import { useApp } from '../../../../providers/AppProvider';
 import { INITIAL_SOUND_BALANCE } from '../../../../constants/common.constants';
+import { MESSAGE } from '../../../../messages/messages';
+import { getAudioChannelType, handleOnChange } from '../../helpers.player';
 import { ButtonVariant } from '../../../UI/Button/types';
-import { handleOnChange } from '../../helpers.player';
 import { InfoProps } from './types';
+
+const STEREO_AUDIO_STYLES = 'text-green-1 green-drop-shadow';
 
 export const Info: FC<InfoProps> = ({
   volume,
@@ -19,6 +23,22 @@ export const Info: FC<InfoProps> = ({
 }) => {
   const [soundDirection, setSoundDirection] = useState(INITIAL_SOUND_BALANCE);
   const [isEqualizerActive, setIsEqualizerActive] = useState(false);
+  const [audioChannelType, setAudioChannelType] = useState<string | null>(null);
+
+  const { selectedFile } = useApp();
+
+  useEffect(() => {
+    const fetchChannelType = async () => {
+      if (selectedFile) {
+        const channelType = await getAudioChannelType(selectedFile);
+        setAudioChannelType(channelType);
+      } else {
+        setAudioChannelType(null);
+      }
+    };
+
+    fetchChannelType();
+  }, [selectedFile]);
 
   return (
     <div className="flex flex-col gap-y-3 h-[88px] flex-grow max-w-[calc(100%-200px)]">
@@ -50,7 +70,9 @@ export const Info: FC<InfoProps> = ({
 
         <div className="flex items-center gap-x-3 text-white text-xs">
           <p>{MESSAGE.MONO}</p>
-          <p>{MESSAGE.STEREO}</p>
+          <p className={twMerge(audioChannelType && STEREO_AUDIO_STYLES)}>
+            {MESSAGE.STEREO}
+          </p>
         </div>
       </div>
 
