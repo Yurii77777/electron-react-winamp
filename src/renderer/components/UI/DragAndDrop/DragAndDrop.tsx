@@ -24,10 +24,6 @@ const DragAndDrop = <T extends FieldValues>({
 
   const { setSelectedFile } = useApp();
 
-  // const onDrop = (files: File[]) => {
-  //   setValue(name, files as PathValue<T, Path<T>>);
-  // };
-
   const onDrop = async (files: File[]) => {
     setValue(name, files as PathValue<T, Path<T>>);
 

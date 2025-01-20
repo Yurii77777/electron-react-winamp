@@ -7,6 +7,7 @@ export const MIN_WINDOW_WIDTH = 620; // px
 export const BASE_WINDOW_WIDTH = 620; // px
 
 export const DROPZONE_INPUT_NAME = 'dropzone';
+export const FORM_STORE_NAME = 'files';
 
 export const ACCEPTED_AUDIO_FORMATS = {
   'audio/mpeg': ['.mp3'],

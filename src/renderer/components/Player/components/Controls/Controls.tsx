@@ -20,7 +20,7 @@ export const Controls: FC<ControlsProps> = ({
   const [isShuffleActive, setIsShuffleActive] = useState(false);
   const [isRepeatActive, setIsRepeatActive] = useState(false);
 
-  const { form, setSelectedFile } = useApp();
+  const { form, selectedFile, setSelectedFile } = useApp();
   const { reset } = form;
 
   return (
@@ -34,7 +34,15 @@ export const Controls: FC<ControlsProps> = ({
               imgSrc={icon}
               customClasses="p-0"
               onClick={() =>
-                handler(soundRef, isPlaying, setIsPlaying, setProgressSeconds)
+                handler(
+                  soundRef,
+                  isPlaying,
+                  setIsPlaying,
+                  setProgressSeconds,
+                  form,
+                  setSelectedFile,
+                  selectedFile,
+                )
               }
             />
           ))}

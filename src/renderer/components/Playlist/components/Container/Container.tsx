@@ -1,5 +1,6 @@
 import DragAndDrop from '../../../UI/DragAndDrop/DragAndDrop';
 import { useApp } from '../../../../providers/AppProvider';
+import { FORM_STORE_NAME } from '../../../../constants/common.constants';
 
 export const Container = () => {
   const { form } = useApp();
@@ -9,7 +10,11 @@ export const Container = () => {
     <div className="flex-1 w-fullpx-2 pt-1 pl-1 pb-[10px] primary-gradient playlist-container-shadow">
       <div className="p-2 border-l-2 border-t-2 borger-gray-2 h-full drop-shadow">
         <div className="h-full bg-black">
-          <DragAndDrop setValue={setValue} name="videos" control={control} />
+          <DragAndDrop
+            setValue={setValue}
+            name={FORM_STORE_NAME}
+            control={control}
+          />
         </div>
       </div>
     </div>
