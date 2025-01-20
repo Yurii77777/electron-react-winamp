@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge';
 
 import { Slider } from '../../../UI/Slider/Slider';
 import { Button } from '../../../UI/Button/Button';
+import { SongTitle } from '../SongTitle/SongTitle';
 import { useApp } from '../../../../providers/AppProvider';
 import { INITIAL_SOUND_BALANCE } from '../../../../constants/common.constants';
 import { MESSAGE } from '../../../../messages/messages';
@@ -42,13 +43,7 @@ export const Info: FC<InfoProps> = ({
 
   return (
     <div className="flex flex-col gap-y-3 h-[88px] flex-grow max-w-[calc(100%-200px)]">
-      <p
-        className="flex items-center font-dogica text-green-1 text-xs p-1
-                  h-6 min-h-6 w-full bg-black text-green- overflow-hidden
-                  secondary-shadow tertiary-shadow whitespace-nowrap text-ellipsis"
-      >
-        {audioFileName}
-      </p>
+      <SongTitle title={audioFileName} />
 
       <div className="flex items-center h-6 min-h-6 w-full justify-between">
         <div className="flex items-center gap-x-[10px] h-full">

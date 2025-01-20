@@ -192,3 +192,19 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+@keyframes marquee-alternate {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(calc(-100% + 100px));
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-alternate {
+  animation: marquee-alternate 15s ease-in-out infinite;
+}
