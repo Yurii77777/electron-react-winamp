@@ -32,3 +32,11 @@ An example of using Electron to develop a desktop application.
 
 Thanks for mockup
 https://www.figma.com/design/iMKNADTGD3IIc2gMMUaQw3/Winamp-2023-(Autolayout)-(Community)?node-id=322-6155&t=gElWmVd6EsrkGqjL-0
+
+### Watch Video
+
+[![Electron + React = Winamp](https://img.youtube.com/vi/6kBFh4TO4mk/0.jpg)](https://youtu.be/6kBFh4TO4mk)
+
+### Support author here 👇😉
+
+![Winamp Preview](./src/renderer/assets/images/IMG_2260.JPG)
