@@ -6,6 +6,7 @@ import {
   BASE_WINDOW_WIDTH,
   MIN_WINDOW_HEIGHT,
   MIN_WINDOW_WIDTH,
+  SCALE_FACTOR,
 } from '../renderer/constants/common.constants';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -22,16 +23,18 @@ let mainWindow;
 const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: BASE_WINDOW_WIDTH,
-    height: MIN_WINDOW_HEIGHT,
-    minWidth: MIN_WINDOW_WIDTH,
-    minHeight: MIN_WINDOW_HEIGHT,
+    useContentSize: true,
+    width: Math.round(BASE_WINDOW_WIDTH * SCALE_FACTOR),
+    height: Math.round(MIN_WINDOW_HEIGHT * SCALE_FACTOR),
+    minWidth: Math.round(MIN_WINDOW_WIDTH * SCALE_FACTOR),
+    minHeight: Math.round(MIN_WINDOW_HEIGHT * SCALE_FACTOR),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       // for displaying local images by absolute path
       webSecurity: false,
       contextIsolation: true,
       nodeIntegration: false,
+      zoomFactor: SCALE_FACTOR,
     },
   });
 
@@ -69,7 +72,10 @@ const createWindow = () => {
 
 ipcMain.on('resize-window', (event, { width, height }) => {
   if (mainWindow) {
-    mainWindow.setSize(width, height);
+    mainWindow.setContentSize(
+      Math.round(width * SCALE_FACTOR),
+      Math.round(height * SCALE_FACTOR),
+    );
   }
 });
 
